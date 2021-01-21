@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Crash Bandicoot Character Selector</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="icon" type="image/png" href="Icons/crash.png">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
+        <link rel="stylesheet" href="css/main.css"/>
+
+    </head>
+
+
+    <body>
+        <div class="space stars1"></div>
+        <div class="space stars2"></div>
+        <div class="space stars3"></div>
+
+        <div class="app">
+
+            <div id="chooser" data-simplebar>
+
+                <h1>Choose Your Character</h1>
+
+                <div id="radio-div">
+
+                    <input type="radio" name="character" value="0" checked onchange="selectModel();" id="crash" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="crash"><img id="crash-img" src="Icons/crash.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="1"  onchange="selectModel();" id="agent-crash" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="agent-crash"><img id="agent-crash-img" src="Icons/agent_crash.png" /></label>
+                    </div>
+            
+                    <input type="radio" name="character" value="2"  onchange="selectModel();" id="coco" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="coco"><img id="coco-img" src="Icons/coco.png" /></label>
+                    </div>
+                    
+                    <input type="radio" name="character" value="3"  onchange="selectModel();" id="caveman-crash" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="caveman-crash"><img id="caveman-crash-img" src="Icons/caveman_crash.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="4"  onchange="selectModel();" id="crunch" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="crunch"><img id="crunch-img" src="Icons/crunch.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="5"  onchange="selectModel();" id="rapper_crash" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="rapper_crash"><img id="rapper-crash-img" src="Icons/rapper_crash.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="6"  onchange="selectModel();" id="cortex" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="cortex"><img id="cortex-img" src="Icons/cortex.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="7"  onchange="selectModel();" id="n-trophy" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="n-trophy"><img id="n-trophy-img" src="Icons/n-trophy.png" /></label>
+                    </div>
+
+                    <input type="radio" name="character" value="8"  onchange="selectModel();" id="tiny-tiger" class="input-hidden" />
+                    <div class="character-box">
+                        <label for="tiny-tiger"><img id="tiny-tiger-img" src="Icons/tiny_tiger.png" /></label>
+                    </div>
+
+
+                </div>
+              
+
+            </div>
+
+            <div id="character">
+
+                <section id="loading-screen">
+
+                    <div id="loader"></div>
+                
+                </section>
+                
+                <canvas></canvas>
+
+            </div>
+          
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+        <script src="js/three.min.js"></script>
+        <script src="js/GLTFLoader.js"></script>
+        <script src="js/OBJLoader.js"></script>
+        <script src="js/OrbitControls.js"></script>     
+        <script src="js/main.js"></script>
+      
+    </body>
+</html>
