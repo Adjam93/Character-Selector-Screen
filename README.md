@@ -8,4 +8,4 @@ Models downloaded from: <a href="https://www.models-resource.com">models-resourc
 
 <h3>Project Screenshot:</h3>
 
-<img src="https://ajcode.net/crash-character-selector/screenshot.jpg>
+<img src="https://ajcode.net/crash-character-selector/screenshot.jpg >
