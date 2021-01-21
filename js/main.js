@@ -1,6 +1,6 @@
-let camera, scene, renderer, ground, controls, model, mixer, loadingScreen, canvas, delta;
+let camera, scene, renderer, ground, controls, model, loadingScreen, canvas, delta;
 
-const clock = new THREE.Clock();
+const mixers = [], clock = new THREE.Clock();
 
 let gemsY = [];
 
@@ -11,7 +11,7 @@ function onload() {
 
 }
 
-var modelList = [
+let modelList = [
 
     {
         name: "crash.glb", url: 'Characters/crash.glb', platformPostion : new THREE.Vector3( 0, -1.59, 0 )
@@ -42,7 +42,7 @@ var modelList = [
     },
 ];
 
-var gems = [
+let gems = [
 
     {
         obj_file: 'Blue_Gem.obj', gem_position: new THREE.Vector3( 3.2, -0.2, -15 ), color: 0x0e55c7
@@ -69,11 +69,11 @@ function init( character ) {
     camera.position.set( 0, 0, 5 );
     scene.add( camera );
 
-    var directionalLight1 = new THREE.DirectionalLight( 0xf2f2f2, 1 );
+    let directionalLight1 = new THREE.DirectionalLight( 0xf2f2f2, 1 );
     directionalLight1.position.set( 0, 5, 0 );
     scene.add( directionalLight1 );
 
-    var directionalLight2 = new THREE.DirectionalLight( 0xf2f2f2, 1 );
+    let directionalLight2 = new THREE.DirectionalLight( 0xf2f2f2, 1 );
     directionalLight2.position.set( 0, -5, 0 );
     scene.add( directionalLight2 );
 
@@ -87,7 +87,7 @@ function init( character ) {
 
     } );
 
-    let sceneInfo = modelList[character]; //character from array of  models in html radio options
+    let sceneInfo = modelList[ character ]; //character from array of  models in html radio options
     let url = sceneInfo.url;
     let platformPostion = sceneInfo.platformPostion;
     let name = sceneInfo.name;
@@ -100,8 +100,9 @@ function init( character ) {
 
         scene.add( model );
 
-        mixer = new THREE.AnimationMixer( model );
+        const mixer = new THREE.AnimationMixer( model );
         mixer.clipAction( gltf.animations[ 0 ] ).play();
+        mixers.push( mixer );
 
     } );
 
@@ -196,7 +197,7 @@ function switchScene( character ) {
 
 function selectModel() {
 
-    var index = document.querySelector('#radio-div input[name="character"]:checked').value;
+    let index = document.querySelector( '#radio-div input[name="character"]:checked' ).value;
     
     if ( index.length >= 0 ) {
 
@@ -229,10 +230,13 @@ function render() {
     delta = clock.getDelta();
     let time = clock.getElapsedTime();
 
-    if ( mixer !== undefined ) {
-
-        mixer.update( delta );
-
+    if( model !== undefined ){
+      
+        for( let i = 0; i < mixers.length; i++ ){
+    
+            mixers[ i ].update( delta );
+    
+        }
     }
 
     resizeCanvasToDisplaySize();
