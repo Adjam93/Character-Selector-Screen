@@ -251,7 +251,7 @@ canvas {
 
 @media( max-width: 992px){
     .app{
-        flex-direction: column;
+       display: block;
     }
 
     #chooser{
